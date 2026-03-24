@@ -1044,7 +1044,9 @@ async function main() {
   console.log(`  Total items: ${totalItems}`);
 }
 
-main().catch(async (err) => {
+main().then(() => {
+  process.exit(0);
+}).catch(async (err) => {
   if (browser) await browser.close();
   console.error("Build failed:", err);
   process.exit(1);
