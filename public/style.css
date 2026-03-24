@@ -1738,8 +1738,20 @@ footer {
 
   /* --- Mobile Breadcrumb --- */
   .breadcrumb {
+    position: fixed;
+    top: 48px;
+    left: 0;
+    right: 0;
+    max-width: none;
     padding: 0.5rem 1rem;
-    top: 52px;
+    z-index: 90;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Push feed content below fixed breadcrumb */
+  .feed-filters {
+    margin-top: 40px;
   }
 
   .back-btn {
