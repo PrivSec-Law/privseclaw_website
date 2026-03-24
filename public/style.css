@@ -1557,13 +1557,15 @@ footer {
   }
 
   .tab-content {
-    margin-top: 0;
+    margin-top: 55px;
   }
 
   /* --- Mobile Header --- */
   .header-sticky {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
   }
 
   header {
@@ -1575,6 +1577,7 @@ footer {
     align-items: center;
     justify-content: center;
     position: relative;
+    padding: 0 3rem;
   }
 
   /* Hide the eye image on mobile */
@@ -1594,10 +1597,19 @@ footer {
     justify-content: center;
   }
 
-  /* Theme toggle smaller */
+  /* Reorder: theme toggle before title */
+  .title-row {
+    order: 0;
+  }
+
   .theme-toggle {
     font-size: 0.9rem;
     padding: 0.3rem 0.4rem;
+    order: -1;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   /* Burger: position absolutely on the right */
