@@ -1544,7 +1544,28 @@ footer {
   }
 
   .tab-nav {
+    display: none;
+  }
+
+  .burger-wrap {
+    display: flex;
+  }
+
+  .header-sticky {
+    position: sticky;
+    top: 0;
+  }
+
+  .tab-content {
+    margin-top: 0;
+  }
+
+  #feed-sources {
     padding: 0 1rem;
+  }
+
+  .filter-group {
+    flex-wrap: wrap;
   }
 
   .card-grid {
