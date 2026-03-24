@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>privseclaw.info</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="beta-banner">BETA TEST — This site is under active development. Feeds, layout, and features may change.</div>
+  <div class="header-sticky">
+  <header>
+    <div class="header-inner">
+      <img src="/eyewatchingmandesk.jpeg" alt="" class="header-img">
+      <div class="header-text">
+        <div class="title-row">
+          <h1 class="site-title" id="home-link">privseclaw.info</h1>
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <span class="icon-sun">&#9788;</span>
+            <span class="icon-moon">&#9790;</span>
+          </button>
+        </div>
+      </div>
+      <div class="burger-wrap">
+        <button class="burger-btn" id="burger-btn" aria-label="Menu">
+          <span class="burger-lines">
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+            <span class="burger-line"></span>
+          </span>
+          <span class="burger-label">Menu</span>
+        </button>
+        <div class="burger-menu" id="burger-menu">
+          <button class="burger-item" data-tab="home">Home</button>
+          <button class="burger-item" data-tab="news">PrivSecLaw News Feeds</button>
+          <button class="burger-item" data-tab="guides">PrivSecLaw Blog</button>
+          <button class="burger-item" data-tab="resources">PrivSecLaw Resources</button>
+          <button class="burger-item" data-tab="contact">Contact</button>
+          <button class="burger-item" data-tab="privacy">Privacy Notice</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  </div>
+
+  <nav class="tab-nav">
+    <button class="tab active" data-tab="home">Home</button>
+    <button class="tab" data-tab="news">PrivSecLaw News Feeds</button>
+    <button class="tab" data-tab="guides">PrivSecLaw Blog</button>
+    <button class="tab" data-tab="resources">PrivSecLaw Resources</button>
+    <button class="tab" data-tab="contact">Contact</button>
+  </nav>
+
+  <!-- Home tab -->
+  <main id="tab-home" class="tab-content active">
+    <div class="home-hero">
+
+      <div class="home-hero-header">
+        <img src="/eyewatchingmandesk.jpeg" alt="" class="home-hero-eye">
+        <div class="home-hero-header-text">
+          <h1 class="home-hero-title">PRIVSECLAW.INFO</h1>
+          <p class="home-hero-sub">Privacy, Security &amp; Technology Law</p>
+        </div>
+      </div>
+
+      <div class="home-hero-divider"></div>
+
+      <div class="home-hero-body">
+        <div class="home-hero-col">
+          <p>A comprehensive, regularly updated overview of the latest developments in privacy, cybersecurity, AI, and technology law. Drawing from news outlets, regulatory bodies, law firms, advocacy organisations, and academic sources worldwide.</p>
+        </div>
+
+        <div class="home-hero-col-divider"></div>
+
+        <div class="home-hero-col">
+          <p>You will also find my blog, where I sporadically post about digital rights, surveillance, and the intersection of law and technology, alongside a curated list of resources to help you become more private and secure online.</p>
+        </div>
+      </div>
+
+      <div class="home-hero-footer">
+        <div class="home-hero-divider"></div>
+        <p class="home-hero-tagline">Stay free. Stay private.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- News tab -->
+  <main id="tab-news" class="tab-content">
+    <section id="view-home" class="view active">
+      <p class="refresh-note">Feeds refresh twice daily: <span id="updated-at"></span></p>
+      <div class="news-layout">
+        <div class="news-left">
+          <div id="category-cards" class="card-grid"></div>
+        </div>
+        <div class="news-right">
+          <div class="home-latest">
+            <h3 class="home-section-title">Latest Headlines</h3>
+            <div id="home-latest-items"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-subcategories" class="view">
+      <nav class="breadcrumb">
+        <button id="back-to-home" class="back-btn">&larr; All Categories</button>
+        <span class="breadcrumb-divider">/</span>
+        <span id="subcategory-title" class="breadcrumb-title"></span>
+      </nav>
+      <div id="subcategory-cards" class="card-grid"></div>
+    </section>
+
+    <section id="view-feeds" class="view">
+      <nav class="breadcrumb">
+        <button id="back-from-feeds" class="back-btn">&larr; Back</button>
+        <span class="breadcrumb-divider">/</span>
+        <span id="feed-view-title" class="breadcrumb-title"></span>
+      </nav>
+      <div class="feed-filters">
+        <div class="filter-group">
+          <span class="filter-label">Time</span>
+          <button class="filter-btn active" data-filter="time" data-value="24h">24h</button>
+          <button class="filter-btn" data-filter="time" data-value="48h">48h</button>
+          <button class="filter-btn" data-filter="time" data-value="1w">1 Week</button>
+          <button class="filter-btn" data-filter="time" data-value="2w">2 Weeks</button>
+          <button class="filter-btn" data-filter="time" data-value="1m">1 Month</button>
+          <button class="filter-btn" data-filter="time" data-value="3m">3 Months</button>
+          <button class="filter-btn" data-filter="time" data-value="6m">6 Months</button>
+        </div>
+      </div>
+      <div id="feed-sources"></div>
+      <div id="feed-items"></div>
+    </section>
+  </main>
+
+  <!-- Blog tab (guides/articles) -->
+  <main id="tab-guides" class="tab-content">
+    <section id="view-guides-list" class="view active">
+      <div class="guides-intro">
+        <h2>PrivSecLaw Blog</h2>
+        <p>Guides, reviews, and commentary on privacy, security and technology.</p>
+      </div>
+      <div id="guides-cards" class="card-grid"></div>
+    </section>
+    <section id="view-guides-article" class="view">
+      <nav class="breadcrumb">
+        <button id="back-to-guides" class="back-btn">&larr; All Posts</button>
+      </nav>
+      <article id="guide-content" class="guide-article"></article>
+    </section>
+  </main>
+
+  <!-- Privacy Resources tab -->
+  <main id="tab-resources" class="tab-content">
+    <section id="view-resources-list" class="view active">
+      <div class="guides-intro">
+        <h2>PrivSecLaw Resources</h2>
+        <p>Here you can find a list of resources to aid you in enhancing your digital privacy and security. All of these have been personally read, watched and listened to by me and/or are what I regularly consult.</p>
+      </div>
+      <div id="resources-cards" class="card-grid"></div>
+    </section>
+    <section id="view-resources-article" class="view">
+      <nav class="breadcrumb">
+        <button id="back-to-resources" class="back-btn">&larr; All Resources</button>
+      </nav>
+      <article id="resource-content" class="guide-article"></article>
+    </section>
+  </main>
+
+  <!-- Privacy Notice tab (menu only, not in tab bar) -->
+  <main id="tab-privacy" class="tab-content">
+    <div class="placeholder-section privacy-notice">
+      <h2>Privacy Notice</h2>
+
+      <h3>Data Processing</h3>
+      <p>I take your privacy very seriously. This site has no analytics enabled.</p>
+      <p>I do not collect, store, or otherwise process your personal data unless you choose to contact me directly (e.g., by email, calling, or through messaging applications). In such cases, I will ensure that processing of your personal data is done in accordance with the principles of data protection by design and default, ensuring that data is:</p>
+      <ul>
+        <li>Collected for specific, explicit, and legitimate purposes.</li>
+        <li>Processed in a manner that is fair, transparent, and secure.</li>
+        <li>Kept accurate, complete, and up-to-date.</li>
+        <li>Stored for no longer than necessary.</li>
+        <li>Deleted or anonymized when no longer needed.</li>
+      </ul>
+      <p>By default, this site does not set non-essential cookies.</p>
+
+      <h3>Third-Party Services</h3>
+      <p>Certain features on this site rely on third-party services. These are only activated if you choose to interact with them:</p>
+      <ul>
+        <li><strong>YouTube videos:</strong> Videos are embedded using a privacy-enhanced setup and only load once you actively click "Play." At that point, your browser will connect to YouTube, which may set cookies or collect usage data. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">YouTube's Privacy Policy</a>.</li>
+      </ul>
+      <p>If you do not wish to share information with these third parties, you can simply choose not to interact with these elements.</p>
+
+      <h3>Hosting Provider</h3>
+      <p>This website is hosted through Netlify. See the following information relating to Netlify's privacy policy:</p>
+      <ul>
+        <li><a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener noreferrer">Netlify Privacy Statement</a></li>
+        <li><a href="https://www.netlify.com/gdpr-ccpa/" target="_blank" rel="noopener noreferrer">Netlify's commitment to protect your data</a></li>
+      </ul>
+
+      <h3>Data Subject Rights</h3>
+      <p>You have the right to:</p>
+      <ul>
+        <li><strong>Access:</strong> Request access to your personal data held by me.</li>
+        <li><strong>Rectify:</strong> Request rectification of inaccurate personal data held by me.</li>
+        <li><strong>Erasure:</strong> Request erasure of personal data held by me.</li>
+        <li><strong>Restrict Processing:</strong> Request restriction of personal data processing held by me.</li>
+        <li><strong>Data Portability:</strong> Request data portability.</li>
+        <li><strong>Object to Processing:</strong> Object to the processing of personal data held by me.</li>
+      </ul>
+
+      <h3>Contact</h3>
+      <p>If you have any questions, concerns, or requests regarding this privacy policy, please contact me at <a href="mailto:privseclaw@pm.me">privseclaw@pm.me</a>.</p>
+
+      <h3>Changes to This Policy</h3>
+      <p>This privacy policy may be updated from time to time to reflect changes in my data processing practices or to comply with changes in applicable laws and regulations. You are encouraged to review this policy regularly to stay informed about how I handle your personal data.</p>
+      <p>By using this website, you acknowledge that you have read, understood, and agree to the terms of this privacy policy.</p>
+    </div>
+  </main>
+
+  <!-- Contact tab -->
+  <main id="tab-contact" class="tab-content">
+    <div class="placeholder-section contact-page">
+      <h2>Get in Touch</h2>
+      <p>Have a question, query, or suggestion? Want to flag a broken feed, recommend a new source, or just say hello? I'd love to hear from you.</p>
+      <div class="contact-email">
+        <a href="mailto:privseclaw@pm.me">privseclaw@pm.me</a>
+      </div>
+      <p class="contact-note">I aim to respond to all messages within a reasonable timeframe. For privacy-related requests (e.g., data subject rights), please refer to the <a href="/privacy-notice" class="contact-privacy-link">Privacy Notice</a>.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>This site does not collect, store, perform analytics on or in any way process personal data.</p>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

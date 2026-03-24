@@ -1,0 +1,128 @@
+{
+  "categories": [
+    {
+      "name": "General Tech",
+      "feeds": [
+        "https://www.theregister.com/headlines.atom",
+        "https://www.theverge.com/rss/index.xml",
+        "https://techcrunch.com/feed/",
+        "http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/technology/rss.xml",
+        "https://www.derstandard.de/rss/web",
+        "https://feeds.bloomberg.com/technology/news.rss",
+        "https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml",
+        "https://www.technologyreview.com/feed/",
+        "https://arstechnica.com/feed/",
+        "https://www.theguardian.com/technology/rss",
+        "https://www.scmp.com/rss/36/feed"
+      ]
+    },
+    {
+      "name": "AI Updates",
+      "feeds": [
+        "https://www.luizasnewsletter.com/feed",
+        "https://www.decodingdiscontinuity.com/feed",
+        "https://newsletter.safe.ai/feed",
+        "https://brief.montrealethics.ai/feed",
+        "https://artificialintelligenceact.substack.com/feed",
+        "https://www.theguardian.com/technology/artificialintelligenceai/rss",
+        "https://ainowinstitute.org/feed",
+        "https://news.mit.edu/topic/mitmachine-learning-rss.xml",
+        "https://www.theregister.com/software/ai_ml/headlines.atom",
+        "https://importai.substack.com/feed",
+        "scrape:cyberscoop/ai"
+      ]
+    },
+    {
+      "name": "Tech Law | Policy | Regulatory",
+      "subcategories": [
+        {
+          "name": "Global",
+          "feeds": [
+            "https://www.techpolicy.press/rss/feed.xml",
+            "scrape:iapp.org/global",
+            "scrape:simmons/global",
+            "scrape:twobirds/tmt",
+            "https://www.debevoisedatablog.com/feed/",
+            "scrape:lawfare",
+            "scrape:freshfields-tq"
+          ]
+        },
+        {
+          "name": "EU",
+          "feeds": [
+            "https://www.euractiv.com/sections/tech/feed",
+            "https://www.politico.eu/section/technology/feed/",
+            "https://www.edpb.europa.eu/feed/news_en",
+            "https://www.edps.europa.eu/feed/news_en",
+            "scrape:iapp.org/gdpr+aiact",
+            "filter:ec-digital-news",
+            "filter:eulawblog-dataprotection",
+            "filter:eulawblog-ai",
+            "scrape:simmons/eu",
+            "https://ejlt.org/index.php/ejlt/gateway/plugin/WebFeedGatewayPlugin/atom",
+            "https://noyb.eu/en/rss",
+            "https://artificialintelligenceact.substack.com/feed",
+            "https://www.cnil.fr/en/rss.xml",
+            "https://gdprhub.eu/index.php?title=Special:NewPages&feed=atom&hideredirs=1&limit=10&render=1",
+            "scrape:curia/pending",
+            "scrape:curia/closed"
+          ]
+        },
+        {
+          "name": "UK",
+          "feeds": [
+            "scrape:ico.org.uk",
+            "scrape:simmons/uk"
+          ]
+        },
+        {
+          "name": "US",
+          "feeds": [
+            "scrape:iapp.org/ccpa",
+            "https://cppa.ca.gov/feed",
+            "filter:fcc-tmt",
+            "https://www.nist.gov/news-events/news/rss.xml"
+          ]
+        },
+        {
+          "name": "Middle East",
+          "feeds": [
+            "scrape:simmons/me"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Privacy | Cybersecurity | Digital Rights & Society",
+      "feeds": [
+        "https://www.eff.org/rss/updates.xml",
+        "https://www.theguardian.com/world/privacy/rss",
+        "https://www.theguardian.com/world/surveillance/rss",
+        "https://www.accessnow.org/feed/",
+        "https://edri.org/feed/",
+        "https://bigbrotherwatch.org.uk/feed/",
+        "https://www.privacyguides.org/posts/tag/news/feed/",
+        "https://www.privacyguides.org/posts/tag/articles/feed/",
+        "https://privsec.dev/index.xml",
+        "https://www.schneier.com/feed/atom/",
+        "https://epic.org/feed/",
+        "https://therecord.media/feed/",
+        "https://rss.arxiv.org/rss/cs.CY",
+        "https://www.404media.co/rss/",
+        "https://www.wired.com/feed/category/security/latest/rss",
+        "filter:proton-privacy-news",
+        "https://netzpolitik.org/feed/",
+        "https://noyb.eu/en/rss",
+        "https://www.mozillafoundation.org/en/blog/rss/",
+        "https://themarkup.org/feeds/rss.xml",
+        "https://krebsonsecurity.com/feed/",
+        "https://cdt.org/feed/",
+        "scrape:cyberscoop",
+        "https://algorithmwatch.org/en/feed/",
+        "scrape:reuters/cyber",
+        "scrape:reuters/privacy",
+        "https://cyberinsider.com/feed/"
+      ]
+    }
+  ]
+}

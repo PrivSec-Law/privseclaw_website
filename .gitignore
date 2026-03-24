@@ -1,0 +1,7 @@
+node_modules/
+public/feeds.config.json
+public/feeds-data.json
+.DS_Store
+
+# Local Netlify folder
+.netlify/
