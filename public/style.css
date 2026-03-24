@@ -1543,23 +1543,93 @@ footer {
     padding: 1.5rem 1rem 1.25rem;
   }
 
+  /* ===== MOBILE LAYOUT ===== */
+
+  /* Prevent horizontal scroll */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* Hide desktop tab nav */
   .tab-nav {
     display: none;
-  }
-
-  .burger-wrap {
-    display: flex;
-  }
-
-  .header-sticky {
-    position: sticky;
-    top: 0;
   }
 
   .tab-content {
     margin-top: 0;
   }
 
+  /* --- Mobile Header --- */
+  .header-sticky {
+    position: sticky;
+    top: 0;
+  }
+
+  header {
+    padding: 0.75rem 1rem;
+  }
+
+  .header-inner {
+    gap: 0;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  /* Hide the eye image on mobile */
+  .header-img {
+    display: none;
+  }
+
+  /* Smaller title */
+  .site-title {
+    font-size: 1.15rem;
+    letter-spacing: 0.06em;
+  }
+
+  .title-row {
+    height: auto;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  /* Theme toggle smaller */
+  .theme-toggle {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.4rem;
+  }
+
+  /* Burger: position absolutely on the right */
+  .burger-wrap {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: auto;
+    margin-left: 0;
+  }
+
+  .burger-btn {
+    padding: 0.35rem 0.55rem;
+  }
+
+  .burger-label {
+    font-size: 0.65rem;
+  }
+
+  .burger-line {
+    width: 14px;
+  }
+
+  /* Burger dropdown full width */
+  .burger-menu {
+    right: -1rem;
+    min-width: 200px;
+  }
+
+  /* --- Mobile Feed Filters --- */
   #feed-sources {
     padding: 0 1rem;
   }
@@ -1568,108 +1638,172 @@ footer {
     flex-wrap: wrap;
   }
 
-  /* News landing cards — stack vertically, full width, centered */
+  .feed-filters {
+    padding: 0.75rem 1rem 0;
+  }
+
+  .filter-label {
+    font-size: 0.7rem;
+  }
+
+  .filter-btn {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .source-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.45rem;
+  }
+
+  .sources-label {
+    font-size: 0.7rem;
+  }
+
+  /* --- Mobile News Landing --- */
   .news-left .card-grid {
     flex-direction: column;
-    align-items: center;
-    padding: 1rem 0;
+    align-items: stretch;
+    padding: 0.75rem 0;
+    gap: 0.6rem;
   }
 
   .news-left .category-card {
     width: 100%;
     flex: none;
+    min-height: 60px;
   }
 
-  .card-grid {
-    grid-template-columns: 1fr;
-    padding: 1rem;
-    justify-content: center;
-  }
-
-  /* Bigger text on mobile */
-  body {
-    font-size: 1.1rem;
-  }
-
-  .feed-item a {
-    font-size: 1.1rem;
-  }
-
-  .feed-item .meta span {
-    font-size: 0.75rem;
-  }
-
-  .feed-item .snippet {
-    font-size: 0.95rem;
-  }
-
-  /* Center the news layout */
-  .news-layout {
-    text-align: center;
-  }
-
-  .home-section-title {
-    text-align: center;
-  }
-
-  /* Refresh note centered */
-  .refresh-note {
-    text-align: center;
-    padding: 0.5rem 1rem;
-  }
-
-  /* Category cards on subcategory pages */
   .category-card {
     width: 100%;
   }
 
-  /* Resource cards full width */
-  #resources-cards .guides-section-grid .resource-card {
-    width: 100%;
+  .category-card h2 {
+    font-size: 0.9rem;
   }
 
+  .card-grid {
+    grid-template-columns: 1fr;
+    padding: 0.75rem 1rem;
+    justify-content: center;
+  }
+
+  .news-layout {
+    padding: 0 1rem;
+    text-align: center;
+  }
+
+  .refresh-note {
+    text-align: center;
+    padding: 0.4rem 1rem;
+    font-size: 0.7rem;
+  }
+
+  .home-section-title {
+    text-align: center;
+    font-size: 0.85rem;
+  }
+
+  /* --- Mobile Feed Items --- */
+  body {
+    font-size: 1rem;
+  }
+
+  #feed-items {
+    padding: 0.5rem 1rem 1.5rem;
+    columns: 1;
+  }
+
+  .feed-item a {
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  .feed-item .snippet {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  /* --- Mobile Breadcrumb --- */
+  .breadcrumb {
+    padding: 0.5rem 1rem;
+    top: 52px;
+  }
+
+  .back-btn {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
+  }
+
+  /* --- Mobile Home Hero --- */
+  .home-hero {
+    padding: 2rem 1.25rem 1.5rem;
+  }
+
+  .home-hero-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .home-hero-header-text {
+    align-items: center;
+  }
+
+  .home-hero-eye {
+    width: 70px;
+    height: 70px;
+  }
+
+  .home-hero-title {
+    font-size: 1.6rem;
+  }
+
+  .home-hero-sub {
+    font-size: 0.65rem;
+  }
+
+  .home-hero-body {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .home-hero-col-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(15, 164, 175, 0.25), transparent);
+  }
+
+  .home-hero-body .home-hero-col {
+    padding: 0;
+  }
+
+  .home-hero-body p {
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .home-hero-section-title {
+    text-align: center;
+  }
+
+  .home-hero-tagline {
+    font-size: 1rem;
+  }
+
+  /* --- Mobile Guides/Resources --- */
   .guides-section-grid {
     grid-template-columns: 1fr;
   }
 
   #guides-cards.card-grid {
-    padding: 1rem;
-  }
-
-  .breadcrumb {
-    padding: 1rem;
-  }
-
-  #feed-items {
-    padding: 0.75rem 1rem 1.5rem;
-    columns: 1;
-  }
-
-  .feed-filters {
-    padding: 1rem 1rem 0;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .news-layout {
-    flex-direction: column;
-    padding: 0 1rem;
-  }
-
-  .news-left {
-    flex: none;
-  }
-
-  #home-latest-items {
-    columns: 1;
-  }
-
-  .home-section {
-    padding: 1.5rem 1rem;
+    padding: 0.75rem 1rem;
   }
 
   .guides-intro {
-    padding: 1.5rem 1rem 0;
+    padding: 1rem 1rem 0;
   }
 
   .guide-article {
@@ -1677,6 +1811,34 @@ footer {
   }
 
   .guide-article .guide-img-narrow {
-    max-width: 80%;
+    max-width: 90%;
+  }
+
+  #resources-cards .guides-section-grid .resource-card {
+    width: 100%;
+  }
+
+  .home-section {
+    padding: 1rem;
+  }
+
+  /* --- Mobile Beta Banner --- */
+  .beta-banner {
+    font-size: 0.6rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  /* --- Mobile Footer --- */
+  footer {
+    font-size: 0.75rem;
+    padding: 1rem;
+  }
+
+  #home-latest-items {
+    columns: 1;
+  }
+
+  .news-left {
+    flex: none;
   }
 }
