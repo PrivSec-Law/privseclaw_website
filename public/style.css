@@ -1568,9 +1568,64 @@ footer {
     flex-wrap: wrap;
   }
 
+  /* News landing cards — stack vertically, full width, centered */
+  .news-left .card-grid {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  .news-left .category-card {
+    width: 100%;
+    flex: none;
+  }
+
   .card-grid {
     grid-template-columns: 1fr;
     padding: 1rem;
+    justify-content: center;
+  }
+
+  /* Bigger text on mobile */
+  body {
+    font-size: 1.1rem;
+  }
+
+  .feed-item a {
+    font-size: 1.1rem;
+  }
+
+  .feed-item .meta span {
+    font-size: 0.75rem;
+  }
+
+  .feed-item .snippet {
+    font-size: 0.95rem;
+  }
+
+  /* Center the news layout */
+  .news-layout {
+    text-align: center;
+  }
+
+  .home-section-title {
+    text-align: center;
+  }
+
+  /* Refresh note centered */
+  .refresh-note {
+    text-align: center;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Category cards on subcategory pages */
+  .category-card {
+    width: 100%;
+  }
+
+  /* Resource cards full width */
+  #resources-cards .guides-section-grid .resource-card {
+    width: 100%;
   }
 
   .guides-section-grid {
