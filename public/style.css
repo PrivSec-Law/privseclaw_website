@@ -1835,7 +1835,7 @@ footer {
 
   /* Push subcategory cards below fixed breadcrumb on mobile */
   #subcategory-cards {
-    padding-top: 55px;
+    padding-top: 60px;
   }
 
 
@@ -1878,11 +1878,11 @@ footer {
   /* --- Mobile Breadcrumb --- */
   .breadcrumb {
     position: fixed;
-    top: 48px;
+    top: 56px;
     left: 0;
     right: 0;
     max-width: none;
-    padding: 0.5rem 1rem;
+    padding: 0.65rem 1rem;
     z-index: 90;
     background: var(--bg);
     border-bottom: 1px solid var(--border);
@@ -1890,7 +1890,7 @@ footer {
 
   /* Push feed content below fixed breadcrumb */
   .feed-filters {
-    margin-top: 40px;
+    margin-top: 55px;
   }
 
   .back-btn {
@@ -1901,11 +1901,6 @@ footer {
   .breadcrumb .breadcrumb-title {
     font-size: 0.75rem;
     letter-spacing: 0.04em;
-  }
-
-  /* More space when breadcrumb wraps on mobile */
-  .feed-filters {
-    margin-top: 50px;
   }
 
   /* --- Mobile Home Hero --- */
