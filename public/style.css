@@ -1800,12 +1800,17 @@ footer {
 
   .feed-filters {
     padding: 0.75rem 1rem 0;
-    gap: 0.6rem;
+    gap: 1rem;
   }
 
   .filter-row {
     gap: 0.4rem;
     row-gap: 0.5rem;
+  }
+
+  #feed-sources {
+    padding-top: 0.4rem;
+    border-top: 1px solid var(--border);
   }
 
   /* --- Mobile News Landing --- */
