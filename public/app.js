@@ -170,12 +170,12 @@ const state = {
 // --- URL Routing ---
 function updateURL(path, replace = false) {
   const titles = {
-    "/": "Home",
+    "/": "PrivSecLaw Home",
     "/news": "PrivSecLaw News",
     "/blog": "PrivSecLaw Blog",
     "/privacy-resources": "PrivSecLaw Resources",
-    "/contact": "Contact",
-    "/privacy-notice": "Privacy Notice",
+    "/contact": "Contact PrivSecLaw",
+    "/privacy-notice": "PrivSecLaw Privacy Notice",
   };
   document.title = titles[path] || (state.feedTitle ? state.feedTitle : "privseclaw.info");
 
