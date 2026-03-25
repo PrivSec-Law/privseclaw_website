@@ -1752,22 +1752,26 @@ footer {
   .news-left .category-card {
     width: 100%;
     flex: none;
-    min-height: 60px;
+    min-height: auto;
+    padding: 0.8rem 1rem;
   }
 
   .category-card {
     width: 100%;
+    padding: 0.9rem 1.2rem;
   }
 
   .category-card h2 {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .card-grid {
     grid-template-columns: 1fr;
     padding: 0.75rem 1rem;
     justify-content: center;
+    gap: 0.6rem;
   }
+
 
   .news-layout {
     padding: 0 1rem;
@@ -1826,6 +1830,16 @@ footer {
   .back-btn {
     font-size: 0.75rem;
     padding: 0.3rem 0.7rem;
+  }
+
+  .breadcrumb .breadcrumb-title {
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* More space when breadcrumb wraps on mobile */
+  .feed-filters {
+    margin-top: 50px;
   }
 
   /* --- Mobile Home Hero --- */
