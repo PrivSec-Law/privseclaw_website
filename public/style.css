@@ -533,7 +533,6 @@ body.light .theme-toggle .icon-moon {
   position: sticky;
   top: 91px;
   z-index: 50;
-  background: var(--bg);
   padding: 0.75rem 2rem;
   max-width: 1100px;
   margin: 0 auto;
@@ -541,6 +540,19 @@ body.light .theme-toggle .icon-moon {
   align-items: center;
   gap: 1rem;
   transition: background 0.2s;
+}
+
+.breadcrumb::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: -1;
 }
 
 .back-btn {
@@ -1098,6 +1110,19 @@ body.light .theme-toggle .icon-moon {
   max-width: 1100px;
 }
 
+.guides-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--border);
+}
+
+#guides-cards .guides-section-header:first-child {
+  margin-top: 0;
+}
+
 .guides-section-heading {
   font-family: "Playfair Display", Georgia, serif;
   font-size: 1.3rem;
@@ -1105,13 +1130,32 @@ body.light .theme-toggle .icon-moon {
   color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  margin: 2rem 0 1rem;
-  padding-bottom: 0.4rem;
-  border-bottom: 2px solid var(--border);
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 
-#guides-cards .guides-section-heading:first-child {
-  margin-top: 0;
+.guides-section-toggle {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: rgba(15, 164, 175, 0.08);
+  border: 1px solid rgba(15, 164, 175, 0.25);
+  border-radius: 4px;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.guides-section-toggle:hover {
+  background: rgba(15, 164, 175, 0.15);
+  border-color: var(--accent);
+}
+
+.guides-section-grid.collapsed {
+  display: none;
 }
 
 .guides-section-placeholder {

@@ -450,7 +450,7 @@ function updateTimestamp(data) {
   const el = document.getElementById("updated-at");
   if (data.updatedAt) {
     const d = new Date(data.updatedAt);
-    el.textContent = `Last updated ${d.toLocaleDateString("en-GB")} ${d.toLocaleTimeString()}`;
+    el.textContent = `${d.toLocaleDateString("en-GB")} ${d.toLocaleTimeString()}`;
   }
 }
 
@@ -766,11 +766,23 @@ function renderGuidesList() {
   // Use defined order; any unlisted sections appear at the end
   const orderedSections = [...SECTION_ORDER, ...sections.filter((s) => !SECTION_ORDER.includes(s))];
 
+  const isMobile = window.innerWidth <= 700;
+
   for (const sectionName of orderedSections) {
+    const headingRow = document.createElement("div");
+    headingRow.className = "guides-section-header";
+
     const heading = document.createElement("h2");
     heading.className = "guides-section-heading";
     heading.textContent = sectionName;
-    grid.appendChild(heading);
+    headingRow.appendChild(heading);
+
+    const toggleBtn = document.createElement("button");
+    toggleBtn.className = "guides-section-toggle";
+    toggleBtn.textContent = isMobile ? "Show Posts" : "Hide Posts";
+    headingRow.appendChild(toggleBtn);
+
+    grid.appendChild(headingRow);
 
     const guides = sectionMap.get(sectionName) || [];
     if (guides.length === 0) {
@@ -783,6 +795,12 @@ function renderGuidesList() {
 
     const sectionGrid = document.createElement("div");
     sectionGrid.className = "guides-section-grid";
+    if (isMobile) sectionGrid.classList.add("collapsed");
+
+    toggleBtn.addEventListener("click", () => {
+      sectionGrid.classList.toggle("collapsed");
+      toggleBtn.textContent = sectionGrid.classList.contains("collapsed") ? "Show Posts" : "Hide Posts";
+    });
 
     for (const guide of guides) {
       const card = document.createElement("div");
