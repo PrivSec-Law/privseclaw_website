@@ -1796,6 +1796,7 @@ footer {
   #feed-sources {
     gap: 0.4rem;
     row-gap: 0.5rem;
+    margin-top: 0.5rem;
   }
 
   .feed-filters {
