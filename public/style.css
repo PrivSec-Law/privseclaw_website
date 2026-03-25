@@ -1780,26 +1780,32 @@ footer {
   }
 
   .filter-btn {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.5rem;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
   }
 
   .source-badge {
-    font-size: 0.6rem;
-    padding: 0.15rem 0.35rem;
+    font-size: 0.68rem;
+    padding: 0.25rem 0.5rem;
   }
 
   .sources-label {
-    font-size: 0.65rem;
+    font-size: 0.7rem;
   }
 
   #feed-sources {
-    gap: 0.3rem;
+    gap: 0.4rem;
+    row-gap: 0.5rem;
   }
 
   .feed-filters {
-    padding: 0.5rem 1rem 0;
+    padding: 0.75rem 1rem 0;
+    gap: 0.6rem;
+  }
+
+  .filter-row {
     gap: 0.4rem;
+    row-gap: 0.5rem;
   }
 
   /* --- Mobile News Landing --- */
