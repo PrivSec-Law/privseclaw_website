@@ -24,7 +24,7 @@ const CATEGORY_SLUGS = {
   "General Tech": "general-tech",
   "AI Updates": "ai-updates",
   "Tech Law | Policy | Regulatory": "tech-law",
-  "Privacy | Cybersecurity | Digital Rights & Society": "privacy-security",
+  "Privacy | Security | Digital Rights": "privacy-security",
 };
 const SLUG_TO_CATEGORY = Object.fromEntries(
   Object.entries(CATEGORY_SLUGS).map(([k, v]) => [v, k])
@@ -629,7 +629,7 @@ function applyFilters(items) {
 
 // --- Render Feeds ---
 const CATEGORY_DEFAULT_TIME = {
-  "Tech Law | Policy | Regulatory": "1w",
+  "General Tech": "24h",
 };
 
 function renderFeeds(title, items, returnTo, accent) {
@@ -643,8 +643,8 @@ function renderFeeds(title, items, returnTo, accent) {
   const parentName = state.currentCategory?.name || title;
   const defaultTime = CATEGORY_DEFAULT_TIME[parentName] || CATEGORY_DEFAULT_TIME[title] || "48h";
   state.timeFilter = defaultTime;
-  document.querySelectorAll(".filter-btn[data-filter]").forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.filter === defaultTime);
+  document.querySelectorAll('.filter-btn[data-filter="time"]').forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.value === defaultTime);
   });
 
   document.getElementById("feed-view-title").textContent = title;
