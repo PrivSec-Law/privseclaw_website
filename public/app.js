@@ -170,14 +170,14 @@ const state = {
 // --- URL Routing ---
 function updateURL(path, replace = false) {
   const titles = {
-    "/": "privseclaw.info",
-    "/news": "News — privseclaw.info",
-    "/blog": "PrivSecLaw Blog — privseclaw.info",
-    "/privacy-resources": "Privacy Resources — privseclaw.info",
-    "/contact": "Contact — privseclaw.info",
-    "/privacy-notice": "Privacy Notice — privseclaw.info",
+    "/": "Home",
+    "/news": "PrivSecLaw News",
+    "/blog": "PrivSecLaw Blog",
+    "/privacy-resources": "PrivSecLaw Resources",
+    "/contact": "Contact",
+    "/privacy-notice": "Privacy Notice",
   };
-  document.title = titles[path] || (state.feedTitle ? `${state.feedTitle} — privseclaw.info` : "privseclaw.info");
+  document.title = titles[path] || (state.feedTitle ? state.feedTitle : "privseclaw.info");
 
   if (window.location.pathname !== path) {
     const method = replace ? "replaceState" : "pushState";
@@ -868,7 +868,7 @@ async function loadGuideArticle(slug) {
     // Set page title
     const guide = GUIDES.find((g) => g.slug === slug);
     if (guide) {
-      document.title = `${guide.title} — privseclaw.info`;
+      document.title = guide.title;
     }
 
     // Activate YouTube click-to-load placeholders
@@ -968,7 +968,7 @@ async function loadResourceArticle(slug) {
     // Set page title
     const resource = RESOURCES.find((r) => r.slug === slug);
     if (resource) {
-      document.title = `${resource.title} — privseclaw.info`;
+      document.title = resource.title;
     }
   } catch (err) {
     container.innerHTML = `<p class="loading">Failed to load resource.</p>`;
