@@ -53,6 +53,16 @@ const FILTERED_FEEDS = {
       c.toLowerCase().includes("privacy news")
     ),
   },
+  "ftc-tech": {
+    url: "https://www.ftc.gov/feeds/press-release.xml",
+    source: "FTC",
+    sourceUrl: "https://www.ftc.gov",
+    filter: (item) => {
+      const text = (item.title || "").toLowerCase();
+      const keywords = /privacy|data|cyber|artificial intelligence|\bai\b|algorithm|surveillance|biometric|children|tracking|breach|digital|online|tech|platform|social media|search|merger|antitrust|app|software|cloud|internet|broadband|mobile|device|consumer data|location|facial recognition|dark pattern|subscription|identity/;
+      return keywords.test(text);
+    },
+  },
   "fcc-tmt": {
     urls: [
       "https://api2.fcc.gov/api/exp/v1.0.0/edocspublic/rss/docTypes/News_Release",
@@ -246,6 +256,12 @@ const CUSTOM_SCRAPERS = {
     sourceUrl: "https://technologyquotient.freshfields.com",
     sitemapUrl: "https://technologyquotient.freshfields.com/sitemap",
     urlPattern: "/post/",
+  },
+  "aljazeera-tech": {
+    type: "playwright-scrape",
+    source: "Al Jazeera: Technology",
+    sourceUrl: "https://www.aljazeera.com",
+    scrapeUrl: "https://www.aljazeera.com/tag/technology/",
   },
 };
 
@@ -740,6 +756,56 @@ async function scrapeCURIA(scraperConfig) {
 }
 
 // Scrape articles from a sitemap.xml — used for sites with no RSS but a clean sitemap (e.g. Freshfields TQ)
+// Scrape Al Jazeera technology tag page — no tech RSS feed exists
+async function scrapeAlJazeera(scraperConfig) {
+  const { source, sourceUrl, scrapeUrl } = scraperConfig;
+  console.log(`  Scraping: ${source} via Playwright`);
+  try {
+    if (!browser) browser = await chromium.launch({ headless: true });
+    const page = await browser.newPage();
+    await page.goto(scrapeUrl, { waitUntil: "domcontentloaded", timeout: 20000 });
+    await page.waitForSelector("article a, h3 a", { timeout: 10000 }).catch(() => {});
+    const items = await page.evaluate(() => {
+      const results = [];
+      const seen = new Set();
+      document.querySelectorAll("article a, .gc__title a, h3 a, [class*=title] a").forEach((a) => {
+        const title = a.textContent?.trim();
+        const href = a.href;
+        if (!title || title.length < 10 || !href || !href.includes("aljazeera.com") || seen.has(href)) return;
+        seen.add(href);
+        // Extract date from URL pattern: /2026/3/27/
+        const dateMatch = href.match(/\/(\d{4})\/(\d{1,2})\/(\d{1,2})\//);
+        let pubDate = null;
+        if (dateMatch) {
+          pubDate = new Date(
+            parseInt(dateMatch[1]),
+            parseInt(dateMatch[2]) - 1,
+            parseInt(dateMatch[3])
+          ).toISOString();
+        }
+        results.push({ title, link: href, pubDate });
+      });
+      return results;
+    });
+    await page.close();
+    const cleaned = items
+      .filter((i) => i.pubDate)
+      .map((i) => ({
+        title: i.title,
+        link: i.link,
+        pubDate: i.pubDate,
+        description: "",
+        source,
+        sourceUrl,
+      }));
+    console.log(`  ✓ ${source}: ${cleaned.length} items (Playwright)`);
+    return cleaned;
+  } catch (e) {
+    console.error(`  ✗ ${source} scrape failed: ${e.message}`);
+    return [];
+  }
+}
+
 async function scrapeSitemap(scraperConfig) {
   const { source, sourceUrl, sitemapUrl, urlPattern } = scraperConfig;
   console.log(`  Scraping: ${source} via sitemap`);
@@ -963,6 +1029,7 @@ async function fetchFeedItems(urls) {
         if (config.type === "wp-api") return scrapeWordPressAPI(config);
         if (config.type === "playwright-scrape" && config.source === "Lawfare") return scrapeLawfare(config);
         if (config.type === "playwright-scrape" && config.source.startsWith("CJEU")) return scrapeCURIA(config);
+        if (config.type === "playwright-scrape" && config.source.startsWith("Al Jazeera")) return scrapeAlJazeera(config);
         if (config.type === "sitemap-scrape") return scrapeSitemap(config);
         console.warn(`  ✗ Unknown scraper type: ${config.type}`);
         return Promise.resolve([]);

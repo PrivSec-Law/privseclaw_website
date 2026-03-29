@@ -959,6 +959,34 @@ body.light .theme-toggle .icon-moon {
   border-bottom: none;
 }
 
+.feed-items-columns {
+  columns: 3;
+  column-gap: 2rem;
+  column-rule: 1px solid var(--border);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+}
+
+.feed-items-columns .feed-item {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border);
+  break-inside: avoid;
+}
+
+.feed-items-columns .feed-item:last-child {
+  border-bottom: none;
+}
+
+#subcategory-latest {
+  gap: 0;
+  padding: 0;
+}
+
+#subcategory-latest .home-section-title {
+  padding: 0.75rem 2rem 0.5rem !important;
+}
+
 /* === Placeholder Section (Blog) === */
 .placeholder-section {
   max-width: 1100px;
@@ -2011,6 +2039,11 @@ footer {
 
   #home-latest-items {
     columns: 1;
+  }
+
+  .feed-items-columns {
+    columns: 1;
+    padding: 0.5rem 1rem 1.5rem;
   }
 
   .news-left {

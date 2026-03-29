@@ -13,7 +13,8 @@
         "https://www.technologyreview.com/feed/",
         "https://arstechnica.com/feed/",
         "https://www.theguardian.com/technology/rss",
-        "https://www.scmp.com/rss/36/feed"
+        "https://www.scmp.com/rss/36/feed",
+        "scrape:aljazeera-tech"
       ]
     },
     {
@@ -43,8 +44,8 @@
             "scrape:simmons/global",
             "scrape:twobirds/tmt",
             "https://www.debevoisedatablog.com/feed/",
-            "scrape:lawfare",
-            "scrape:freshfields-tq"
+            "scrape:freshfields-tq",
+            "https://www.insideprivacy.com/feed/"
           ]
         },
         {
@@ -81,7 +82,13 @@
             "scrape:iapp.org/ccpa",
             "https://cppa.ca.gov/feed",
             "filter:fcc-tmt",
-            "https://www.nist.gov/news-events/news/rss.xml"
+            "filter:ftc-tech",
+            "https://www.nist.gov/news-events/news/rss.xml",
+            "scrape:lawfare",
+            "https://www.hunton.com/privacy-and-information-security-law/feed",
+            "https://www.bytebacklaw.com/feed/",
+            "https://www.privacyworld.blog/feed/",
+            "https://blog.ericgoldman.org/feed/"
           ]
         },
         {

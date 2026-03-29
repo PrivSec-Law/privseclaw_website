@@ -601,6 +601,50 @@ function renderSubcategories(cat) {
     grid.appendChild(card);
   }
 
+  // Render latest headlines from Global (merged) items below the cards
+  const globalSub = cat.subcategories.find((s) => s.name === "Global");
+  const latestWrap = document.getElementById("subcategory-latest");
+  const latestContainer = document.getElementById("subcategory-latest-items");
+  if (globalSub && globalSub.items.length > 0) {
+    latestWrap.style.display = "";
+    latestContainer.innerHTML = "";
+    const now = Date.now();
+    const cutoff = 48 * 60 * 60 * 1000;
+    const recent = globalSub.items
+      .filter((item) => item.pubDate && now - new Date(item.pubDate).getTime() <= cutoff)
+      .slice(0, 60);
+    if (recent.length === 0) {
+      latestContainer.innerHTML = '<p class="empty-note">No recent items.</p>';
+    } else {
+      for (const item of recent) {
+        const el = document.createElement("div");
+        el.className = "feed-item";
+        const link = document.createElement("a");
+        link.href = item.link;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = decodeEntities(item.title);
+        el.appendChild(link);
+        const meta = document.createElement("div");
+        meta.className = "meta";
+        meta.innerHTML = `<span>${escapeHtml(item.source)}</span>`;
+        if (item.pubDate) {
+          meta.innerHTML += `<span>${timeAgo(new Date(item.pubDate))}</span>`;
+        }
+        el.appendChild(meta);
+        if (item.description) {
+          const desc = document.createElement("p");
+          desc.className = "snippet";
+          desc.textContent = decodeEntities(item.description);
+          el.appendChild(desc);
+        }
+        latestContainer.appendChild(el);
+      }
+    }
+  } else {
+    latestWrap.style.display = "none";
+  }
+
   switchView("subcategories");
 }
 
